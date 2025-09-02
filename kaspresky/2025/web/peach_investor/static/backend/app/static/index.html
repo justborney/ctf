@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crypto Market Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <div id="bg-aurora"></div>
+    <div id="bg-grid"></div>
+    <div id="scanlines"></div>
+    <header class="neon-header">
+        <div class="brand">
+            <span class="logo">◎</span>
+            <h1>Crypto Market Analysis</h1>
+        </div>
+        <div></div>
+        <nav>
+            <button id="nav-dashboard" class="nav-btn btn active">Dashboard</button>
+            <button id="nav-uploads" class="nav-btn btn">Static Analyzer</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="view-dashboard" class="view">
+            <div class="tabs-bar card wide">
+                <div id="sourceTabs" class="tabs"></div>
+                <button id="openAddSource" class="btn btn-primary btn-icon" title="Add source"></button>
+            </div>
+            <div class="grid">
+                <div class="card wide">
+                    <h2>Price Overview</h2>
+                    <div class="chart-container">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2>Key Indicators</h2>
+                    <ul id="indicators" class="indicators"></ul>
+                </div>
+                <div class="card">
+                    <h2>Latest Snapshot</h2>
+                    <div id="snapshot" class="snapshot"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-sources" class="view hidden">
+            <div class="card wide">
+                <h2>Data Sources</h2>
+                <div class="toolbar">
+                    <input id="sourceName" placeholder="source-name" />
+                    <input id="sourceUrl" placeholder="https://api.example.com/prices" />
+                    <button id="addSource" class="btn btn-primary">Add Source</button>
+                </div>
+                <table class="table" id="sourcesTable">
+                    <thead>
+                        <tr><th>Name</th><th>URL</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="view-uploads" class="view hidden">
+            <div class="tabs-bar card wide">
+                <div class="select-wrap">
+                    <select id="analyzerKeySelect" class="sr-only"></select>
+                    <div class="custom-select">
+                        <button id="analyzerKeyDisplay" class="select-display" type="button">Select source</button>
+                        <div id="analyzerKeyDropdown" class="select-dropdown hidden"></div>
+                    </div>
+                    <span class="select-chevron">▾</span>
+                </div>
+                <div id="analyzerTabs" class="tabs"></div>
+                <button id="analyzerOpenUpload" class="btn btn-primary btn-icon" title="Upload"></button>
+            </div>
+            <div class="grid">
+                <div class="card wide">
+                    <h2>Price Overview</h2>
+                    <div class="chart-container">
+                        <canvas id="analyzerChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2>Key Indicators</h2>
+                    <ul id="analyzerIndicators" class="indicators"></ul>
+                </div>
+                <div class="card">
+                    <h2>Latest Snapshot</h2>
+                    <div id="analyzerSnapshot" class="snapshot"></div>
+                </div>
+            </div>
+        </section>
+        <div id="uploadModal" class="modal hidden" role="dialog" aria-modal="true">
+            <div class="modal-header">
+                <h3>Upload Data</h3>
+                <button id="uploadModalClose" class="btn btn-icon" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="toolbar">
+                    <input id="uploadModalSource" placeholder="source-name" />
+                    <input id="uploadModalFile" class="file-input" type="file" accept="application/json" data-label="Import JSON..." />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="uploadModalSubmit" class="btn btn-primary">Upload</button>
+            </div>
+        </div>
+        <div id="modalBackdrop" class="modal-backdrop hidden"></div>
+        <div id="addSourceModal" class="modal hidden" role="dialog" aria-modal="true">
+            <div class="modal-header">
+                <h3>Add Source</h3>
+                <button id="closeAddSource" class="btn btn-icon" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="toolbar">
+                    <input id="modalSourceName" placeholder="source-name" />
+                    <input id="modalSourceUrl" placeholder="https://api.example.com/prices" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalAddSourceBtn" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <span>© <span id="year"></span> Crypto Market Analysis</span>
+        <span class="sep">|</span>
+        <span id="apiStatus" class="status">API: checking...</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
+

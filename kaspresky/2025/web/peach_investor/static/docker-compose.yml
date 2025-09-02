@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  peach-coin:
+    build: ./peach-coin
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./peach-coin/data:/app/data
+    environment:
+      - PEACH_COIN_SERVICE_URL=http://peach-coin:8001
+
+  backend:
+    build: ./backend
+    command: sh start.sh
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/uploads:/app/uploads
+      - ./backend/results:/app/results
+    depends_on:
+      - redis
+      - peach-coin
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - PEACH_COIN_SERVICE_URL=http://peach-coin:8001
+    deploy:
+      resources:
+        limits:
+          cpus: 2.5
+          memory: 3G
+        reservations:
+          cpus: 1.5
+          memory: 3G
+
+volumes:
+  redis_data:
+  results_data:
