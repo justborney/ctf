@@ -1,4 +1,4 @@
-MGM Grand
+#MGM Grand
 
 HINT: Suppose that AES.Decrypt(T24, key) + AES.Decrypt(T23, key) = C24_1 * H24_1
 ```
