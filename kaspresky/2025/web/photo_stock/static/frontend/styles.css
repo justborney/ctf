@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --brand-1: #667eea;
+    --brand-2: #764ba2;
+    --accent: #5a67d8;
+    --text: #333333;
+    --muted: #666666;
+    --surface: #ffffff;
+    --bg: #f5f5f5;
+    --radius-s: 8px;
+    --radius-m: 12px;
+    --radius-l: 20px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,0.16);
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 2rem;
+    --space-8: 2.5rem;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.beta-warning {
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%) !important;
+    color: white !important;
+    padding: 0.75rem 0 !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(255, 140, 0, 0.3) !important;
+    position: relative !important;
+    z-index: 999 !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+.beta-warning i {
+    font-size: 1.1rem !important;
+    animation: pulse 2s infinite !important;
+    color: white !important;
+}
+
+.beta-warning span {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.navbar.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #333 !important;
+    font-weight: 700;
+}
+
+.navbar-brand:hover {
+    color: #555 !important;
+}
+
+.navbar-text {
+    color: #333 !important;
+    font-weight: 600;
+}
+
+.navbar .btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--brand-2) 100%);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-outline-primary {
+    background: transparent;
+    border: 2px solid var(--brand-1);
+    color: var(--brand-1);
+}
+
+.btn-outline-primary:hover {
+    background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
+    border-color: transparent;
+    color: #fff;
+}
+
+/* note card styles removed in favor of Bootstrap card */
+
+/* gallery uses Bootstrap row/cols and g-* gutters */
+
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--brand-1);
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+}
+
+
+
+.bi {
+    vertical-align: middle;
+}
+
+h2 {
+    color: var(--text);
+    font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.btn {
+    border-radius: var(--radius-m);
+    padding: var(--space-3) var(--space-5);
+}
+
+/* Bootstrap card adjustments to keep blocks tidy */
+.card {
+    border-radius: var(--radius-l);
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
